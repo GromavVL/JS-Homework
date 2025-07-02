@@ -26,3 +26,16 @@
 // console.log(checkMultiplicity(15, 5)); // true
 // console.log(checkMultiplicity(15, 3)); // true 
 // console.log(checkMultiplicity(15, 4)); // false
+
+
+// 3) Перевірка можливості існування трикутника.
+
+// function triangle(a, b, c) {
+//     if(a + b > c) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// console.log(triangle(3, 3, 5));
