@@ -17,8 +17,6 @@
 // }
 
 
-
-
 // 2. Відомо, чи користувач онлайн (isOnline).
 
 // const isOnline = false;
@@ -37,6 +35,18 @@
 //     document.writeln(`<p>Ваше повідомлення буде відправлено при під'єднанні до мережі Інтернет</p>`)
 // }
 
+const isOnline = true;
+
+document.writeln(`
+    <p>
+    <span style="color:${isOnline ? 'green' : 'red'}">
+    ${isOnline ? 'online' : 'offline'}</span>
+    </p>
+    `);
+
+    if(!isOnline){
+        document.writeln(`<p>Ваше повідомлення буде відправлено при під'єднанні до мережі Інтернет</p>`)
+    }
 
 // 3. Користувач вводить суму покупки.
 
@@ -57,30 +67,30 @@
 
 // Завдання на switch..case
 
-let date = prompt('Введіть номер тижня');
+// let date = prompt('Введіть номер тижня');
 
-switch (date) {
-    case '1':
-        alert('Понеділок');
-        break;
-    case '2':
-        alert('Вівторок');
-        break;
-    case '3':
-        alert('Середа');
-        break;
-    case '4':
-        alert('Четверг');
-        break;
-    case '5':
-        alert('Пятниця');
-        break;
-    case '6':
-        alert('Субота');
-        break;
-    case '7':
-        alert('Неділля');
-        break;
-    default:
-        alert('Було введено некоректний номер тижня!!!')
-}
+// switch (date) {
+//     case '1':
+//         alert('Понеділок');
+//         break;
+//     case '2':
+//         alert('Вівторок');
+//         break;
+//     case '3':
+//         alert('Середа');
+//         break;
+//     case '4':
+//         alert('Четверг');
+//         break;
+//     case '5':
+//         alert('Пятниця');
+//         break;
+//     case '6':
+//         alert('Субота');
+//         break;
+//     case '7':
+//         alert('Неділля');
+//         break;
+//     default:
+//         alert('Було введено некоректний номер тижня!!!')
+// }
