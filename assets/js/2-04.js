@@ -1,16 +1,12 @@
 
 // 1) Реалізувати функцію isWorkingAgePerson, яка буде перевіряти, чи працездатного людина віку (наприклад, від 16 до 64)
 
-// function isWorkingAgePerson(age) {
-//     if (age >= 16 && age <= 64){
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+function isWorkingAgePerson(age) {
+    return age >= 16 && age <= 64;
+}
 
-// const people = isWorkingAgePerson(19);
-// console.log('people :>> ', people);
+const people = isWorkingAgePerson(19);
+console.log('people :>> ', people);
 
 
 // 2) Реалізувати функцію checkMultiplicity, яка приймає два числа і перевіряє, чи ділиться перше на друге націло (без залишку)
@@ -43,27 +39,27 @@ console.log(checkMultiplicity(15, 4)); // false
  * @param {number} c - side 'c'
  * @returns {boolean} true || false
  */
-// let triangle = function(a, b, c) {
-//     if(a + b > c) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-// console.log(triangle(3, 3, 5)); 
+let triangle = function(a, b, c) {
+    if(a + b > c) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(triangle(3, 10, 3)); 
 
 
 
 // 4) Реалізувати функції розрахунку площі (або поверхні) наступної фігури (тіла)
 
-// function triangleArea(a, b, c) {
-//     if (a + b <= c || a + c <= b || b + c <= a) {
-//         return null;
-//     }
-//     const p = (a + b + c) / 2;
-//     return Math.sqrt(p * (p - a) * (p - b) * (p - c));
-// }
-// console.log(triangleArea(3, 3, 5));
+function triangleArea(a, b, c) {
+    if (a + b <= c || a + c <= b || b + c <= a) {
+        return null;
+    }
+    const p = (a + b + c) / 2;
+    return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+}
+console.log(triangleArea(3, 3, 5));
 
 
 
