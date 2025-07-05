@@ -1,0 +1,30 @@
+/*-------------- Общие стили -------------*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 24px;
+}
+
+/*---------------------------------------*/
+
+.user-cart {
+    display: flex;
+    justify-content: center;
+}
+
+.cart {
+    display: flex;
+    background-color: rgba(0, 199, 99, 0.774);
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px;
+}
+
+.cart p {
+    padding: 10px;
+}
