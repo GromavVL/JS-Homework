@@ -61,9 +61,20 @@ for (key in cat) {
 
 
 // 3. Створити функцію-конструктор для створення об'єктів
-function Book(auvtor, nazva, year_publication, price) {
+function Book(auvtor, nazva, publisher, price) {
     this.auvtor = auvtor;
     this.nazva = nazva;
-    this.year_publication = year_publication;
+    this.publisher = publisher;
     this.price = price;
+    this.priceOrder = function () {
+        this.price++;
+    }
 }
+const book1 = new Book('artur konandoyl', 'sherlock holmes', 1854, 58);
+console.log('book1 :>> ', book1);
+
+const bookProto = {};
+bookProto.changeBook = function (newPrice) {
+    this.price = newPrice;
+}
+Book.prototype = bookProto;
