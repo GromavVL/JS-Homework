@@ -78,7 +78,7 @@ const phones = [
         brand: "Google",
         model: "Pixel 7",
         color: "White",
-        price: 600,
+        price: 800,
         RAM: 4
     },
     {
@@ -94,20 +94,13 @@ const phones = [
         brand: "Sony",
         model: "Xperia 5 IV",
         color: "Black",
-        price: 950,
+        price: 800,
         RAM: 8
     },
-    {
-        id: 7,
-        brand: "Samsung",
-        model: "Galaxy A54",
-        color: "White",
-        price: 500,
-        RAM: 8
-    }
 ];
 
 // Цей момент я зробив за домогою ШІ :)
+// - Сформувати розмітку для карток. (*Застилізувати картки.) 
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.getElementsByClassName("cart-phone");
     for (let i = 0; i < phones.length; i++) {
@@ -117,9 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
         card.getElementsByClassName("brand")[0].textContent = `Brand: ${phone.brand}`;
         card.getElementsByClassName("model")[0].textContent = `Model: ${phone.model}`;
         card.getElementsByClassName("color")[0].textContent = `Color: ${phone.color}`;
-        card.getElementsByClassName("price")[0].textContent = `Price: $${phone.price}`;
+        card.getElementsByClassName("price")[0].textContent = `Price: ${phone.price}`;
         card.getElementsByClassName("RAM")[0].textContent = `RAM: ${phone.RAM} GB`;
     }
 });
 
 
+
+// - Знайти середню ціну телефонів.
+const averagePrice = function() {
+    let sum = 0;
+    for(let i = 0; i < phones.length; i++){
+        sum += phones[i].price;
+    }
+    return sum / phones.length;
+}
+console.log('Середня ціна смартфонів :>> ', averagePrice(phones));
