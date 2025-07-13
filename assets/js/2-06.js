@@ -19,7 +19,6 @@ const arrays2 = [...arrays];
 // const arrays3 = Array.from(arrays);
 console.log('arrays2 :>> ', arrays2);
 
-
 // 4 Вивести елементи з парними індексами.
 function arraysFu(...arg) {
     let num = [];
@@ -32,7 +31,6 @@ function arraysFu(...arg) {
 }
 const elIndex = arraysFu(5, 8, 3, 6, -3, 1, -8, 10);
 console.log('elIdex :>> ', elIndex);
-
 
 // 5 Знайти добуток елементів масиву.
 const masDobutok = function () {
@@ -113,8 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
 // - Знайти середню ціну телефонів.
 const averagePrice = function() {
     let sum = 0;
@@ -125,19 +121,16 @@ const averagePrice = function() {
 }
 console.log('Середня ціна смартфонів :>> ', averagePrice(phones));
 
-
 // Методи перебору масивів (forEach, filter, map, findIndex, *some, *every)
 // 8 Отримати новий масив із заданого, який міститиме лише ненульові числа
 const masArrays = [1, 5, 0, 9, -10];
 const zeroArrays = masArrays.filter(item => item !== 0);
 console.log('zeroArrays :>> ', zeroArrays);
 
-
 // 9 Отримати новий масив їх заданого, який міститиме всі елементи вихідного, поділені на 100
-const arrays100 = [99, 5, 0, 9, 30];
+const arrays100 = [99, -5, 0, 9, 30];
 const argmap = arrays100.map(item => item / 100);
 console.log('argmap :>> ', argmap);
-
 
 // 10 Вивести елементи масиву, зведені у куб
 const arrays200 = item => {
@@ -148,7 +141,6 @@ const masKub = arrays100.forEach(arrays200);
 
 // 10 Вивести елементи масиву, зведені у куб
 const indexMas = arrays100.findIndex(item => item ** 2 === 100);
-
 if(indexMas !== -1){
     arrays100.splice(indexMas, 1);
 } else {
@@ -156,8 +148,11 @@ if(indexMas !== -1){
 }
 console.log('indexMas :>> ', indexMas);
 
-
 // 12 *Перевірити, чи всі елементи масиву є парними числами
 const num = [2, 4, 6, 8];
 const mass500 = num.every(item => item % 2 === 0)
 console.log(mass500);
+
+// 13 *Перевірити, чи є у масиві бодай один від'ємний елемент
+const even = arrays100.some(item => item < 0);
+console.log(even);
