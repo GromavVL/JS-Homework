@@ -147,7 +147,6 @@ const masKub = arrays100.forEach(arrays200);
 
 
 // 10 Вивести елементи масиву, зведені у куб
-
 const indexMas = arrays100.findIndex(item => item ** 2 === 100);
 
 if(indexMas !== -1){
@@ -156,3 +155,9 @@ if(indexMas !== -1){
     console.log('Такого індексу немає');
 }
 console.log('indexMas :>> ', indexMas);
+
+
+// 12 *Перевірити, чи всі елементи масиву є парними числами
+const num = [2, 4, 6, 8];
+const mass500 = num.every(item => item % 2 === 0)
+console.log(mass500);
