@@ -45,8 +45,6 @@ const masDobutok = function () {
 const dobutokResult = masDobutok(1, 2, 3, 4, 5, 6, 7);
 console.log('dobutokResult :>> ', dobutokResult);
 
-
-
 // 6 *Задано масив з описом телефонів з полями id, brand, model, color, price, RAM
 const phones = [
     {
@@ -131,22 +129,30 @@ console.log('Середня ціна смартфонів :>> ', averagePrice(ph
 // Методи перебору масивів (forEach, filter, map, findIndex, *some, *every)
 // 8 Отримати новий масив із заданого, який міститиме лише ненульові числа
 const masArrays = [1, 5, 0, 9, -10];
-
 const zeroArrays = masArrays.filter(item => item !== 0);
 console.log('zeroArrays :>> ', zeroArrays);
 
 
 // 9 Отримати новий масив їх заданого, який міститиме всі елементи вихідного, поділені на 100
 const arrays100 = [99, 5, 0, 9, 30];
-
 const argmap = arrays100.map(item => item / 100);
 console.log('argmap :>> ', argmap);
 
 
 // 10 Вивести елементи масиву, зведені у куб
-
 const arrays200 = item => {
     console.log(item ** 2);
 }
-
 const masKub = arrays100.forEach(arrays200);
+
+
+// 10 Вивести елементи масиву, зведені у куб
+
+const indexMas = arrays100.findIndex(item => item ** 2 === 100);
+
+if(indexMas !== -1){
+    arrays100.splice(indexMas, 1);
+} else {
+    console.log('Такого індексу немає');
+}
+console.log('indexMas :>> ', indexMas);
