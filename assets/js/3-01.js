@@ -97,19 +97,65 @@ post1.AddLikes();
 post1.AddHashtag('#espresso');
 console.log(post1);
 
-
-
 const mas = [post2, post3];
 
 document.writeln(`<body>${mas.map(post => post.render())}</body>`);
-
 document.writeln(`<body>${post1.render()}</body>`);
 
 
 // 2
 
 class RangeValidator {
-    constructor () {
-        
+    constructor (from, to) {
+        if(from > to) {
+            throw RangeError('from не може бути більшим за to');
+        }
+        this._from = from;
+        this._to = to;
+    }
+    // from
+    set from(value) {
+        if(value > this._to) {
+            throw RangeError('from не може бути більшим за to');
+        }
+        this._from = value;
+    }
+    get from() {
+        return this._from;
+    }
+    
+    // to
+    set to(value) {
+        if(value < this._from) {
+            throw RangeError('to не може бути меншим за from');
+        }
+        this._to = value
+    }
+    get to() {
+        return this._to;
+    }
+
+    get range() {
+        return this._from, this._to;
+    }
+    isValid(value) {
+        return value >= this._from && value <= this._to;
     }
 }
+
+// Конструктор (+сеттери)
+const range1 = new RangeValidator(1, 5.5);
+
+// Робота сетерів
+range1.from = 5;
+range1.to = 80;
+
+// Робота гетерів
+console.log(range1.from);
+console.log(range1.to);
+
+// // Робота геттера range
+console.log(range1.range);
+
+// Робота validate
+console.log(range1.isValid(10));
