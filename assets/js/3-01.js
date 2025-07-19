@@ -14,7 +14,7 @@ class Post {
     render() {
         const { id, nazva, autor, text, DateAdded, numbeRofLikes, ListHashtags } = this;
         return `
-    <h2>${nazva}</h2>
+    <h2 style="border-top: 1px solid red">${nazva}</h2>
     <p>${autor}</p>
     <p>${text}</p>
     <p>${DateAdded}</p>
@@ -27,10 +27,29 @@ class Post {
         if (value < 0 || value > 1000000) {
             throw new ErrorEvent('Некоректне значення лайків');
         }
-        this.numbeRofLikes = value
+        this.numbeRofLikes = value;
     }
     get Likes() {
-        return this.numbeRofLikes
+        return this.numbeRofLikes;
+    }
+
+    // *додавання хештеґу. Хештеґів у поста може бути максимум 6
+    AddHashtag(...arg) {
+        if (this.ListHashtags.length + arg.length > 6) {
+            throw new RangeError("Максимальна кількість хештеґів — 6");
+        } else {
+            this.ListHashtags.push(...arg);
+        }
+    }
+
+    // змінити текст поста на інший
+    getText(newText) {
+        this.text = newText;
+    }
+
+    // збільшити кількість вподобайок на 1
+    AddLikes() {
+        this.numbeRofLikes += 1;
     }
 }
 
@@ -65,17 +84,7 @@ const post3 = new Post(
 );
 
 // змінити текст поста на інший
-post1.text = 'newPost: The Easter bread is golden, sweet, soft, and beautifully decorated with icing';
-
-
-// збільшити кількість вподобайок на 1
-
-post1.numbeRofLikes += 1;
-// post1.numbeRofLikes -= 1;
-
-// Виведення
-document.writeln(`<body>${post1.render()}</body>`);
-
+post1.getText('newPost: The Easter bread is golden, sweet, soft, and beautifully decorated with icing');
 
 // try {
 //     const like = post1.Likes = -4;
@@ -83,3 +92,24 @@ document.writeln(`<body>${post1.render()}</body>`);
 // } catch (err) {
 //     console.log(err);
 // }
+
+post1.AddLikes();
+post1.AddHashtag('#espresso');
+console.log(post1);
+
+
+
+const mas = [post2, post3];
+
+document.writeln(`<body>${mas.map(post => post.render())}</body>`);
+
+document.writeln(`<body>${post1.render()}</body>`);
+
+
+// 2
+
+class RangeValidator {
+    constructor () {
+        
+    }
+}
