@@ -35,10 +35,10 @@ class Post {
 
     // *додавання хештеґу. Хештеґів у поста може бути максимум 6
     addHashtag(...arg) {
-        if (this.ListHashtags.length + arg.length > 6) {
+        if (this.listHashtags.length + arg.length > 6) {
             throw new RangeError("Максимальна кількість хештеґів — 6");
         } else {
-            this.ListHashtags.push(...arg);
+            this.listHashtags.push(...arg);
         }
     }
 
