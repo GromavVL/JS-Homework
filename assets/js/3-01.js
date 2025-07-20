@@ -1,14 +1,14 @@
 // -----------JS Класовий синтаксис--------
 
 class Post {
-    constructor(id, nazva, autor, text, DateAdded, numbeRofLikes, ListHashtags) {
+    constructor(id, nazva, autor, text, dateAdded, numberOfLikes, listHashtags) {
         this.id = id;
         this.nazva = nazva;
         this.autor = autor;
         this.text = text;
-        this.DateAdded = DateAdded;
-        this.numbeRofLikes = numbeRofLikes;
-        this.ListHashtags = ListHashtags;
+        this.dateAdded = dateAdded;
+        this.numberOfLikes = numberOfLikes;
+        this.listHashtags = listHashtags;
     }
     // render для отримання розмітки для посту (*в методі деструктуризувати інформацію з this).
     render() {
@@ -23,18 +23,18 @@ class Post {
     };
     // сеттер з валідацією для кількості вподобайок та відповідний ґеттер,
     // Для перевірки, чи належить кількість вподобайок певному діапазону
-    set Likes(value) {
+    set likes(value) {
         if (value < 0 || value > 1000000) {
             throw new ErrorEvent('Некоректне значення лайків');
         }
         this.numbeRofLikes = value;
     }
-    get Likes() {
+    get likes() {
         return this.numbeRofLikes;
     }
 
     // *додавання хештеґу. Хештеґів у поста може бути максимум 6
-    AddHashtag(...arg) {
+    addHashtag(...arg) {
         if (this.ListHashtags.length + arg.length > 6) {
             throw new RangeError("Максимальна кількість хештеґів — 6");
         } else {
@@ -48,7 +48,7 @@ class Post {
     }
 
     // збільшити кількість вподобайок на 1
-    AddLikes() {
+    addLikes() {
         this.numbeRofLikes += 1;
     }
 }
@@ -93,8 +93,8 @@ post1.getText('newPost: The Easter bread is golden, sweet, soft, and beautifully
 //     console.log(err);
 // }
 
-post1.AddLikes();
-post1.AddHashtag('#espresso');
+post1.addLikes();
+post1.addHashtag('#espresso');
 console.log(post1);
 
 const mas = [post2, post3];
@@ -107,9 +107,6 @@ document.writeln(`<body>${post1.render()}</body>`);
 
 class RangeValidator {
     constructor (from, to) {
-        if(from > to) {
-            throw RangeError('from не може бути більшим за to');
-        }
         this._from = from;
         this._to = to;
     }
@@ -136,7 +133,7 @@ class RangeValidator {
     }
 
     get range() {
-        return this._from, this._to;
+        return [this._from, this._to];
     }
     isValid(value) {
         return value >= this._from && value <= this._to;

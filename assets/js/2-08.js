@@ -20,7 +20,7 @@
 
 
 
-function customCounter2(a, b) {
+function initialValue(a, b) {
     let sum = a;
     return function () {
         debugger
