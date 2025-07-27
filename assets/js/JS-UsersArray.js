@@ -10,6 +10,21 @@ function User(id, name, surname, age, isMale, email, isSubscribed) {
     this.isSubscribed = isSubscribed;
 }
 
+const users = [];
+for (let i = 0; i < 10; i++) {
+    const user = new User(
+        i + 1,
+        `Username${i}`,
+        `Usersurname${i}`,
+        Math.floor(Math.random() * 90),
+        Math.random() < 0.5,
+        `useremail${i}@gmail.com`,
+        Math.random() < 0.5
+    );
+    users.push(user);
+}
+console.table(users);
+
 // Вивести список повних імен користувачів.
 User.prototype.getFullName = function (){
     return `${this.firstName} ${this.lastName}`;
@@ -29,28 +44,13 @@ User.prototype.getAgeName = function() {
     }
 }
 
-const users = [];
-for (let i = 0; i < 10; i++) {
-    const user = new User(
-        i + 1,
-        `Username${i}`,
-        `Usersurname${i}`,
-        Math.floor(Math.random() * 90),
-        Math.random() < 0.5,
-        `useremail${i}@gmail.com`,
-        Math.random() < 0.5
-    );
-    users.push(user);
-}
-console.table(users);
+// const fullNames = users.map(user => user.getFullName());
+// console.table(fullNames);
 
-const getName = users.map(user => user.getFullName());
-console.table(getName);
+// const notSubscribed = users.filter(user => !user.getIsSubscribed()); 
+// console.table(notSubscribed);
 
 
-const subscribedUsers = users.filter(user => user.getIsSubscribed());
-console.table(subscribedUsers);
-
-
-const getAgeNames = users.filter(user => user.getAgeName());
-console.table(getAgeNames);
+// Впорядкувати користувачів за віком (sort).
+const sortedAge = [...users].sort(user => user.age);
+console.table(sortedAge);
