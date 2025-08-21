@@ -4,10 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
-    <!-- <link rel="stylesheet" href="assets/css/style2-06.css"> -->
-    <script src="assets/js/JS-UsersArray.js"></script>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/JS-DOM/DOM-Intro.js"></script>
     <title>JS-Homework</title>
 </head>
-<body></body>
+
+<body>
+    <article class="article">
+        <div class="info-profile">
+            <img class="profilePhoto"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
+                alt="Profile photo">
+            <p class="nickname">nickname</p>
+            <button class="btn">Авторизуватися</button>
+        </div>
+        <div class="info-cart">
+            <h2 class="info-h2">INFORMATION</h2>
+            <div class="info-row">
+                <div>
+                    <p style="font-weight: 600; color: 1b263b;">Ім'я: </p>
+                    <p class="firstName"></p>
+                </div>
+                <div>
+                    <p style="font-weight: 600; color: 1b263b;">Прізвище: </p>
+                    <p class="lastName"></p>
+                </div>
+            </div>
+            <div class="info-row">
+                <div>
+                    <p style="font-weight: 600; color: 1b263b;">Рік народження: </p>
+                    <p class="birthday" title="25 years"></p>
+                </div>
+                <div>
+                    <p style="font-weight: 600; color: 1b263b;">Кількість лайків: </p>
+                    <p class="likesCount"></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</body>
+
 </html>
