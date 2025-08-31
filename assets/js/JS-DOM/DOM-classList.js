@@ -30,10 +30,83 @@ const news = [
 		date: '2024-02-03',
 	},
 	{
-	title: `This Minecraft replica of Final Fantasy 14's Sharlayan is so good I thought it was an in-game screenshot`,
-	headerBgSrc: `https://cdn.mos.cms.futurecdn.net/hkhr3YJhakUEfdFFUik3vV-1024-80.jpg.webp`,
-	category: 'Minecraft',
-	body: "I am undeniably an absolute sucker for people recreating cool stuff in Minecraft, and nothing has hit my interests more than this fantastic Minecraft replica of Final Fantasy 14's Old Sharlayan. The Grecian-inspired city is the first new area you visit in Endwalker, the game's latest expansion. It's become one of my favourite zones in the game and this replica has done a great job at capturing how gosh-darn pretty the whole place is. The creation comes courtesy of a BiliBili user, who posted a two-minute video of their build to the Chinese social media site. It shows off the giant statue/fountain seen in the Endwalker trailer, the sage council building and the city's main aetheryte which is even spinning in the recreation. Sadly, there doesn't seem to be a way to check this out in Minecraft ourselves, so we'll just have to admire the trailer a few times.",
-	date: '2025-02-04',
+		title: `This Minecraft replica of Final Fantasy 14's Sharlayan is so good I thought it was an in-game screenshot`,
+		headerBgSrc: `https://cdn.mos.cms.futurecdn.net/hkhr3YJhakUEfdFFUik3vV-1024-80.jpg.webp`,
+		category: 'Minecraft',
+		body: "I am undeniably an absolute sucker for people recreating cool stuff in Minecraft, and nothing has hit my interests more than this fantastic Minecraft replica of Final Fantasy 14's Old Sharlayan. The Grecian-inspired city is the first new area you visit in Endwalker, the game's latest expansion. It's become one of my favourite zones in the game and this replica has done a great job at capturing how gosh-darn pretty the whole place is. The creation comes courtesy of a BiliBili user, who posted a two-minute video of their build to the Chinese social media site. It shows off the giant statue/fountain seen in the Endwalker trailer, the sage council building and the city's main aetheryte which is even spinning in the recreation. Sadly, there doesn't seem to be a way to check this out in Minecraft ourselves, so we'll just have to admire the trailer a few times.",
+		date: '2025-02-04',
 	},
 ];
+
+
+function renderNews(news) {
+	const main = document.createElement('main');
+	main.classList.add('main-home');
+	document.body.append(main);
+
+	const articleEl = document.createElement('article');
+	articleEl.classList.add('article-home');
+	main.append(articleEl);
+
+	const headerDiv = document.createElement('div');
+	headerDiv.classList.add('header-div');
+	articleEl.append(headerDiv);
+
+	const titleEl = document.createElement('h1');
+	titleEl.classList.add('title');
+	headerDiv.append(titleEl);
+
+
+	const imgEl = document.createElement('img');
+	imgEl.classList.add('headerBgSrc');
+
+	headerDiv.append(imgEl);
+
+	const category = document.createElement('p');
+	category.classList.add('category');
+	articleEl.append(category);
+
+
+
+	const infoEl = document.createElement('p');
+	infoEl.classList.add('info');
+	articleEl.append(infoEl)
+
+	const footerDiv = document.createElement('div');
+	footerDiv.classList.add('footer-div');
+	articleEl.append(footerDiv);
+
+	const dateEl = document.createElement('p');
+	dateEl.classList.add('date');
+	footerDiv.append(dateEl);
+
+	const trash = document.createElement('i');
+	trash.classList.add('fa-trash');
+	trash.classList.add('fa-solid');
+	trash.classList.add('trash');
+	footerDiv.append(trash);
+
+
+	// Elements init
+	infoEl.textContent = news.body;
+	category.textContent = news.category;
+
+	imgEl.src = news.headerBgSrc;
+	imgEl.alt = news.title;
+	titleEl.textContent = news.title;
+
+	dateEl.textContent = news.date;
+
+	function deleteUser(e) {
+		e.target.closest('.main-home').remove();
+	}
+
+	trash.onclick = deleteUser;
+
+	return main;
+}
+
+news.forEach(n => {
+	const newsBlock = renderNews(n);
+	document.body.append(newsBlock);
+})
