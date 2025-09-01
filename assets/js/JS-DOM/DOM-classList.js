@@ -66,8 +66,6 @@ function renderNews(news) {
 	category.classList.add('category');
 	articleEl.append(category);
 
-
-
 	const infoEl = document.createElement('p');
 	infoEl.classList.add('info');
 	articleEl.append(infoEl)
@@ -102,7 +100,6 @@ function renderNews(news) {
 	}
 
 	trash.onclick = deleteUser;
-
 	return main;
 }
 
